@@ -4,17 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FullCalendarModule } from '@fullcalendar/angular';
-import interactionPlugin from '@fullcalendar/interaction';
-import timeGridPlugin from '@fullcalendar/timegrid';
+import { CoreModule } from './core/core.module';
 import { NgxsModule } from '@ngxs/store';
-import { environment } from '../environments/environment.prod';
-
-
-FullCalendarModule.registerPlugins([
-  interactionPlugin,
-  timeGridPlugin
-]);
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,8 +16,8 @@ FullCalendarModule.registerPlugins([
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FullCalendarModule,
-    NgxsModule.forRoot([], {developmentMode: !environment.production})
+    CoreModule,
+    NgxsModule.forFeature([])
   ],
   providers: [],
   bootstrap: [AppComponent]
