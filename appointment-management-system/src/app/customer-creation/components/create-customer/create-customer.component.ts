@@ -29,6 +29,7 @@ export class CreateCustomerComponent implements OnInit {
 
 
   ngOnInit(): void {
+
     this.formGroup = this.fb.group({
       firstName: ['', Validators.required],
       middleName: [],
