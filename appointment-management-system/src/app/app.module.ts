@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { NgxsModule } from '@ngxs/store';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment.prod';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { environment } from 'src/environments/environment';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    NgxsModule.forFeature([])
+    NgxsModule.forRoot([], {developmentMode: !environment.production})
   ],
   providers: [],
   bootstrap: [AppComponent]

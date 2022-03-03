@@ -1,0 +1,77 @@
+<div class="container" style="width: 25%;">
+  <form [formGroup]="formGroup" autocomplete="off">
+    <mat-card>
+      <mat-card-title>Create Customer</mat-card-title>
+      <mat-card-subtitle>* indicates required field</mat-card-subtitle>
+      <mat-card-content>
+        <div class="row">
+          <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" />
+            <mat-error *ngIf="formGroup.get('firstName')?.hasError('required')">Required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Middle Name</mat-label>
+            <input matInput formControlName="middleName" />
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName" />
+            <mat-error *ngIf="formGroup.get('lastName')?.hasError('required')">Required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="Ex. pat@example.com"/>
+            <mat-error *ngIf="formGroup.get('email')?.hasError('required')">Required</mat-error>
+            <mat-error *ngIf="formGroup.get('email')?.hasError('email')">Invalid Email</mat-error>
+            <mat-error *ngIf="formGroup.get('email')?.hasError('accountExists')">Account exists for email</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Phone #</mat-label>
+            <input matInput type="tel" formControlName="phoneNumber" />
+            <mat-error *ngIf="formGroup.get('phoneNumber')?.hasError('required')">Required</mat-error>
+            <mat-error *ngIf="formGroup.get('phoneNumber')?.hasError('pattern')">Invalid Phone Number</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" />
+            <mat-error *ngIf="formGroup.get('password')?.hasError('required')">Required</mat-error>
+            <mat-error *ngIf="formGroup.get('password')?.hasError('pattern')">Invalid Password</mat-error>
+            <mat-hint>Password must be at least 8 characters long</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" formControlName="password1" />
+            <mat-error *ngIf="formGroup.get('password1')?.hasError('required')">Required</mat-error>
+            <mat-error *ngIf="formGroup.get('password1')?.hasError('pattern')">Invalid Password</mat-error>
+          </mat-form-field>
+        </div>
+
+      </mat-card-content>
+
+      <mat-card-actions>
+        <div style="display: flex; justify-content: center;">
+          <button mat-raised-button color="primary">Create Account</button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
